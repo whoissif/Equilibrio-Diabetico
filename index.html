@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulador educativo para pacientes diabéticos tipo 2. Aprende cómo los hidratos de carbono, el ejercicio y el sueño afectan tu glucosa.">
+  <title>⚕️ Equilibrio Diabético | Simulador Educativo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚕️</text></svg>">
+</head>
+<body>
+  <header>
+    <h1>⚕️ Equilibrio Diabético</h1>
+    <p class="subtitle">Simula cómo la comida, el ejercicio y el sueño afectan tu glucosa</p>
+  </header>
+  
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="simulador">Simulador Básico</button>
+      <button class="tab-btn" data-tab="analisis">📊 Análisis Avanzado</button>
+    </div>
+    
+    <div id="simulador-tab" class="tab-content active">
+      <div class="inputs">
+        <div class="input-group">
+          <label>Hidratos de carbono (g): <span class="value-display" id="carbs-val">50</span></label>
+          <input type="range" id="carbs" min="0" max="100" value="50">
+        </div>
+        
+        <div class="input-group">
+          <label>Minutos caminando: <span class="value-display" id="walk-val">20</span></label>
+          <input type="range" id="walk" min="0" max="60" value="20">
+        </div>
+        
+        <div class="input-group">
+          <label>Horas de sueño: <span class="value-display" id="sleep-val">7</span></label>
+          <input type="range" id="sleep" min="4" max="12" value="7">
+        </div>
+        
+        <button id="simulate" class="primary-btn">📊 Calcular glucosa</button>
+      </div>
+      
+      <div class="result">
+        <h2>Resultado estimado:</h2>
+        <div class="glucose-display" id="glucose-output">95 mg/dL</div>
+        
+        <div class="factors">
+          <div class="factor carbs">+<span id="carbs-effect">60</span> por HC</div>
+          <div class="factor walk">-<span id="walk-effect">16</span> por caminar</div>
+          <div class="factor sleep" id="sleep-effect">0 por sueño</div>
+        </div>
+      </div>
+      
+      <div class="export-section" id="export-section">
+        <h3>💾 ¿Quieres guardar este resultado?</h3>
+        <p>Exporta tus datos para consultarlos más tarde o compartirlos con tu médico</p>
+        <button id="export-csv" class="export-btn">Exportar como CSV</button>
+        <button id="export-json" class="export-btn json-btn">Exportar como JSON</button>
+      </div>
+      
+      <div class="info">
+        <p>💡 <strong>Consejos basados en evidencia médica:</strong></p>
+        <ul>
+          <li>✅ <strong>7-8 horas de sueño:</strong> Mejora la sensibilidad a la insulina</li>
+          <li>✅ <strong>30 min diarios caminando:</strong> Reduce glucosa hasta un 20%</li>
+          <li>✅ <strong>45-60g HC por comida:</strong> Ideal para diabéticos tipo 2</li>
+        </ul>
+        <p class="disclaimer">
+          *Esta simulación es educativa. Consulta siempre con tu médico para tu manejo personalizado.
+        </p>
+      </div>
+    </div>
+    
+    <div id="analisis-tab" class="tab-content">
+      <div class="analisis-content">
+        <h2>🔬 Análisis Avanzado con Python</h2>
+        <p class="analisis-description">
+          Para un análisis profundo de tus simulaciones (tendencias, patrones y recomendaciones personalizadas), 
+          puedes usar nuestro script de Python que procesa los archivos CSV que exportas.
+        </p>
+        
+        <div class="analisis-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Exporta tus simulaciones</h3>
+              <p>Usa el botón "Exportar como CSV" en el simulador para guardar tus datos</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Descarga el script de análisis</h3>
+              <p>Haz clic en el botón para descargar el script Python listo para usar</p>
+              <button id="download-python" class="secondary-btn">⬇️ Descargar script Python</button>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Ejecuta el análisis</h3>
+              <p>Abre una terminal y ejecuta:</p>
+              <code class="terminal-command">python tools/analisis_simulaciones.py /tu/carpeta/con/csvs/</code>
+              <p class="terminal-note">Necesitas tener Python instalado. Si no lo tienes, <a href="https://www.python.org/downloads/" target="_blank">descárgalo aquí</a>.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Obtén tu informe</h3>
+              <p>¡Listo! Se generará un informe HTML interactivo con gráficos y recomendaciones personalizadas</p>
+              <div class="report-preview">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e3f2fd'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' fill='%232980b9' text-anchor='middle' dominant-baseline='middle'%3E📊 Ejemplo de informe generado%3C/text%3E%3C/svg%3E" alt="Vista previa del informe" class="preview-img">
+                <p class="preview-caption">Así se verá tu informe con gráficos interactivos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="requirements">
+          <h3>📋 Requisitos mínimos</h3>
+          <ul>
+            <li>💻 Python 3.8 o superior</li>
+            <li>📥 Los paquetes: <code>pandas matplotlib seaborn jinja2</code></li>
+            <li>📁 Tus archivos CSV exportados desde la app</li>
+          </ul>
+          <p class="requirements-note">
+            ¿Necesitas ayuda? Consulta la <a href="https://github.com/tuusuario/equilibrio-diabetes#analisis-avanzado" target="_blank">documentación completa</a> en GitHub.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>App educativa para pacientes diabéticos tipo 2 • Basado en guías de la ADA (American Diabetes Association)</p>
+    <p class="license">MIT License © 2025 • Código abierto en <a href="https://github.com/tuusuario/equilibrio-diabetes" target="_blank">GitHub</a></p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
