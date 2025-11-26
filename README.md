@@ -16,7 +16,7 @@ Una aplicación web educativa **100% offline** que ayuda a pacientes diabéticos
 ## 🚀 Cómo usarlo
 
 ### Versión web (recomendado)
-1. Visita: [https://tuusuario.github.io/equilibrio-diabetes](https://tuusuario.github.io/equilibrio-diabetes)
+1. Visita: [https://whoissif.github.io/equilibrio-diabetes](https://tuusuario.github.io/equilibrio-diabetes)
 2. Ajusta los parámetros usando los deslizadores
 3. Haz clic en "Calcular glucosa" para ver los resultados
 4. Exporta tus simulaciones como CSV o JSON si lo deseas
