@@ -366,7 +366,7 @@ class AnalizadorDiabetesApp:
         plt.savefig(buf, format='png', dpi=100, bbox_inches='tight')
         plt.close()
         buf.seek(0)
-        return f"data:image/png;base64,{base64.b64encode(buf.read()).decode('utf-8')}"
+        return f"image/png;base64,{base64.b64encode(buf.read()).decode('utf-8')}"
     
     def generar_grafico_factores(self, df):
         """Genera gráfico de barras de factores - VERSIÓN CORREGIDA"""
@@ -424,8 +424,8 @@ class AnalizadorDiabetesApp:
             plt.close()
             buf.seek(0)
             
-            # CORRECCIÓN CLAVE: Formato base64 correcto con prefijo data:
-            return f"data:image/png;base64,{base64.b64encode(buf.read()).decode('utf-8')}"
+            # CORRECCIÓN CLAVE: Formato base64 correcto con prefijo 
+            return f"image/png;base64,{base64.b64encode(buf.read()).decode('utf-8')}"
             
         except Exception as e:
             self.root.after(100, lambda e=str(e): self.progreso.set(f"❌ Error en gráfico de factores: {e}"))
