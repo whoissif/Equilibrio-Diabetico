@@ -1,6 +1,5 @@
 # ⚖️ Equilibrio Diabético - Simulador Educativo
 
-![Preview de la aplicación](https://github.com/whoissif/Equilibrio-Diabetico/blob/main/README.md)
 
 Una aplicación web educativa **100% offline** que ayuda a pacientes diabéticos tipo 2 (sin insulina) a entender cómo los hidratos de carbono, el ejercicio y el sueño afectan sus niveles de glucosa en sangre.
 
